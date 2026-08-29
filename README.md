@@ -161,11 +161,9 @@ automaticamente.
 
 - L'immagine `public/og-image.png` è un placeholder (il logo del progetto): sostituiscila con
   un'immagine 1200×630 dedicata quando ne avrai una.
-- Il `<link rel="canonical">` e `sitemap.xml` in [`index.html`](index.html) puntano a
-  `https://elnisioeto.github.io/` come placeholder: aggiornali con l'URL reale del sito una volta
-  pubblicato (username/nome-repo definitivi).
-- I dati demo in `data/episodes.csv` sono **inventati** a scopo dimostrativo: sostituiscili con gli
-  episodi reali prima della pubblicazione.
+- Il `<link rel="canonical">` in [`index.html`](index.html) e `sitemap.xml` puntano già a
+  `https://quinta13.github.io/elnisioleto/`: aggiornali se cambi username, nome del repository o
+  dominio custom.
 - Nessuna dipendenza a pagamento, nessuna chiave API richiesta: le tile mappa arrivano dai server
   pubblici di OpenStreetMap (rispettane la [tile usage policy](https://operations.osmfoundation.org/policies/tiles/)
   se il traffico dovesse crescere molto).
