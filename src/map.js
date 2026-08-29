@@ -6,20 +6,78 @@ import { groupEpisodesByLocation } from './episodes.js';
 const VENICE_CENTER = [45.4371, 12.3346];
 const VENICE_ZOOM = 14;
 
-export function createMap({ container, onMarkerClick }) {
+export function createMap({ container, onMarkerClick, onResetView }) {
   const map = L.map(container, {
     zoomControl: false,
     minZoom: 12,
     maxZoom: 19,
   }).setView(VENICE_CENTER, VENICE_ZOOM);
 
-  L.control.zoom({ position: 'bottomright' }).addTo(map);
+  // Zoom control custom (al posto di L.control.zoom): stessa barra "leaflet-bar",
+  // con in mezzo un terzo tasto per ricentrare la mappa su Venezia.
+  const ZoomResetControl = L.Control.extend({
+    options: { position: 'bottomright' },
+    onAdd(mapInstance) {
+      const barContainer = L.DomUtil.create('div', 'leaflet-control-zoom leaflet-bar');
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors',
-    maxZoom: 19,
-  }).addTo(map);
+      const zoomInBtn = createBarButton({
+        container: barContainer,
+        className: 'leaflet-control-zoom-in',
+        html: '+',
+        title: 'Ingrandisci',
+        onClick: () => mapInstance.zoomIn(),
+      });
+      createBarButton({
+        container: barContainer,
+        className: 'leaflet-control-zoom-reset',
+        html: '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><use href="#icon-compass" /></svg>',
+        title: 'Torna a vedere tutta Venezia',
+        onClick: () => {
+          resetView();
+          onResetView?.();
+        },
+      });
+      const zoomOutBtn = createBarButton({
+        container: barContainer,
+        className: 'leaflet-control-zoom-out',
+        html: '&minus;',
+        title: 'Riduci',
+        onClick: () => mapInstance.zoomOut(),
+      });
+
+      const setDisabled = (btn, disabled) => {
+        L.DomUtil[disabled ? 'addClass' : 'removeClass'](btn, 'leaflet-disabled');
+        btn.setAttribute('aria-disabled', String(disabled));
+      };
+      const updateDisabled = () => {
+        setDisabled(zoomInBtn, mapInstance.getZoom() === mapInstance.getMaxZoom());
+        setDisabled(zoomOutBtn, mapInstance.getZoom() === mapInstance.getMinZoom());
+      };
+      mapInstance.on('zoomend zoomlevelschange', updateDisabled);
+      updateDisabled();
+
+      return barContainer;
+    },
+  });
+  new ZoomResetControl().addTo(map);
+
+  const osmAttribution =
+    '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors';
+  const esriAttribution = 'Tiles &copy; Esri';
+
+  const baseLayers = {
+    Standard: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: osmAttribution,
+      maxZoom: 19,
+    }),
+    Colorata: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+      attribution: esriAttribution,
+      maxZoom: 19,
+    }),
+  };
+
+  baseLayers.Colorata.addTo(map);
+  L.control.layers(baseLayers, null, { position: 'topleft' }).addTo(map);
 
   const clusterGroup = L.markerClusterGroup({
     maxClusterRadius: 50,
@@ -62,6 +120,21 @@ export function createMap({ container, onMarkerClick }) {
   }
 
   return { map, setEpisodes, focusEpisode, resetView };
+}
+
+function createBarButton({ container, className, html, title, onClick }) {
+  const link = L.DomUtil.create('a', className, container);
+  link.innerHTML = html;
+  link.href = '#';
+  link.title = title;
+  link.setAttribute('role', 'button');
+  link.setAttribute('aria-label', title);
+
+  L.DomEvent.disableClickPropagation(link);
+  L.DomEvent.on(link, 'click', L.DomEvent.stop);
+  L.DomEvent.on(link, 'click', onClick);
+
+  return link;
 }
 
 function createMarkerIcon(group) {

@@ -28,7 +28,6 @@ const search = createSearch({
 
 const header = createMapHeader({
   onSestiereChange: (sestiere) => applyFilter(sestiere),
-  onResetView: () => mapController?.resetView(),
   onBack: () => showView('landing'),
 });
 
@@ -60,6 +59,7 @@ function ensureMap() {
   mapController = createMap({
     container: document.getElementById('map'),
     onMarkerClick: (group) => openGroup(group, 0),
+    onResetView: () => header.resetFilter(),
   });
   mapController.setEpisodes(allEpisodes);
 }

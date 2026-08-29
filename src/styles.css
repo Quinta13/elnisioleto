@@ -634,6 +634,24 @@ a {
   border-color: var(--color-nero) !important;
 }
 
+.leaflet-control-zoom-reset {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.leaflet-control-layers {
+  border: 1.5px solid var(--color-nero) !important;
+  border-radius: 4px !important;
+  box-shadow: 1px 1px 0 rgba(23, 17, 17, 0.85) !important;
+  font-family: var(--font-ui);
+}
+
+.leaflet-control-layers-toggle {
+  width: 32px !important;
+  height: 32px !important;
+}
+
 /* ==========================================================================
    Episode panel: drawer (desktop) / bottom sheet (mobile)
    ========================================================================== */

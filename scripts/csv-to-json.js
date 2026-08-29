@@ -116,14 +116,19 @@ function toEpisode(headers, rawRow, lineNumber, sestieri) {
     if (!row[field]) warnings.push(`campo "${field}" mancante`);
   }
 
+  // Coordinate del tutto assenti = episodio non ancora geolocalizzato: riga ignorata senza warning.
+  if (!row.latitude && !row.longitude) {
+    return null;
+  }
+
   const latitude = Number(row.latitude);
   const longitude = Number(row.longitude);
   if (!row.latitude || Number.isNaN(latitude)) warnings.push('latitude non numerica');
   if (!row.longitude || Number.isNaN(longitude)) warnings.push('longitude non numerica');
 
-  // episode_number vuoto = episodio speciale (mostrato come "Speciale" invece di "EP. NNN").
-  // Se presente ma non numerico è un errore di battitura: la riga viene scartata.
-  const isSpecial = !row.episode_number;
+  // episode_number vuoto o "Extra" = episodio speciale (mostrato come "Speciale" invece di "EP. NNN").
+  // Se presente ma non numerico e diverso da "Extra" è un errore di battitura: la riga viene scartata.
+  const isSpecial = !row.episode_number || row.episode_number.toLowerCase() === 'extra';
   const episodeNumber = isSpecial ? null : Number(row.episode_number);
   if (!isSpecial && Number.isNaN(episodeNumber)) warnings.push('episode_number non numerico');
 
