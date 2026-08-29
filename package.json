@@ -1,0 +1,22 @@
+{
+  "name": "el-nisioeto",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Mappa interattiva della toponomastica di Venezia — el-nisioeto (@elnisioeto)",
+  "scripts": {
+    "data": "node scripts/csv-to-json.js",
+    "predev": "npm run data",
+    "dev": "vite",
+    "prebuild": "npm run data",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "leaflet.markercluster": "^1.5.3"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10"
+  }
+}
