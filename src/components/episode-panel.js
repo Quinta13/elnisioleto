@@ -37,11 +37,8 @@ export function createEpisodePanel({ onClose, onNavigate }) {
           <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><use href="#icon-instagram" /></svg>
           Guarda il video su Instagram
         </a>
-        <button class="btn btn-secondary" type="button" data-action="copy-link">Copia link episodio</button>
       </div>
     `;
-
-    content.querySelector('[data-action="copy-link"]').addEventListener('click', (e) => copyEpisodeLink(episode, e.currentTarget));
 
     if (hasSiblings) {
       content.querySelectorAll('.panel-nav-btn').forEach((btn) => {
@@ -55,19 +52,6 @@ export function createEpisodePanel({ onClose, onNavigate }) {
     currentIndex = (currentIndex + delta + currentGroup.length) % currentGroup.length;
     render({ focusNav: delta });
     onNavigate?.(currentGroup[currentIndex]);
-  }
-
-  function copyEpisodeLink(episode, btn) {
-    const url = new URL(window.location.href);
-    url.searchParams.set('episode', episode.id);
-    navigator.clipboard
-      ?.writeText(url.toString())
-      .then(() => {
-        const original = btn.textContent;
-        btn.textContent = 'Link copiato!';
-        setTimeout(() => (btn.textContent = original), 1800);
-      })
-      .catch(() => {});
   }
 
   function open(group, startIndex = 0) {

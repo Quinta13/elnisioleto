@@ -7,10 +7,58 @@ import path from 'node:path';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CSV_PATH = path.join(__dirname, '..', 'data', 'episodes.csv');
+const SESTIERI_PATH = path.join(__dirname, '..', 'data', 'sestieri_venezia.geojson');
 const OUT_DIR = path.join(__dirname, '..', 'public', 'data');
 const OUT_PATH = path.join(OUT_DIR, 'episodes.json');
 
 const REQUIRED_FIELDS = ['nisioleto_name', 'instagram_url'];
+
+// --- Calcolo del sestiere per point-in-polygon --------------------------
+// Nessuna dipendenza esterna (vedi commento in testa al file): ray casting
+// scritto a mano, con supporto a poligoni con buchi (Polygon) e MultiPolygon.
+
+function pointInRing(lon, lat, ring) {
+  let inside = false;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    const [xi, yi] = ring[i];
+    const [xj, yj] = ring[j];
+    const intersects = yi > lat !== yj > lat && lon < ((xj - xi) * (lat - yi)) / (yj - yi) + xi;
+    if (intersects) inside = !inside;
+  }
+  return inside;
+}
+
+// Un punto è nel poligono se è dentro l'anello esterno e fuori da ogni buco (anelli successivi).
+function pointInPolygonRings(lon, lat, rings) {
+  if (!pointInRing(lon, lat, rings[0])) return false;
+  for (let i = 1; i < rings.length; i++) {
+    if (pointInRing(lon, lat, rings[i])) return false;
+  }
+  return true;
+}
+
+function pointInFeatureGeometry(lon, lat, geometry) {
+  if (geometry.type === 'Polygon') {
+    return pointInPolygonRings(lon, lat, geometry.coordinates);
+  }
+  if (geometry.type === 'MultiPolygon') {
+    return geometry.coordinates.some((rings) => pointInPolygonRings(lon, lat, rings));
+  }
+  return false;
+}
+
+function loadSestieri() {
+  const geojson = JSON.parse(readFileSync(SESTIERI_PATH, 'utf-8'));
+  return geojson.features.map((feature) => ({
+    nome: feature.properties.A_SCOM_NOM,
+    geometry: feature.geometry,
+  }));
+}
+
+function findSestiere(sestieri, latitude, longitude) {
+  const match = sestieri.find((s) => pointInFeatureGeometry(longitude, latitude, s.geometry));
+  return match ? match.nome : null;
+}
 
 function parseCsv(text) {
   const rows = [];
@@ -57,7 +105,7 @@ function parseCsv(text) {
   return rows.filter((r) => r.some((cell) => cell.trim() !== ''));
 }
 
-function toEpisode(headers, rawRow, lineNumber) {
+function toEpisode(headers, rawRow, lineNumber, sestieri) {
   const row = {};
   headers.forEach((header, i) => {
     row[header] = (rawRow[i] ?? '').trim();
@@ -84,6 +132,11 @@ function toEpisode(headers, rawRow, lineNumber) {
     return null;
   }
 
+  const sestiere = findSestiere(sestieri, latitude, longitude);
+  if (!sestiere) {
+    console.warn(`⚠️  Riga ${lineNumber} (id=${row.id || '?'}): nessun sestiere trovato per le coordinate (${latitude}, ${longitude})`);
+  }
+
   return {
     id: row.id || String(lineNumber),
     episodeNumber,
@@ -94,11 +147,12 @@ function toEpisode(headers, rawRow, lineNumber) {
     latitude,
     longitude,
     instagramUrl: row.instagram_url,
-    sestiere: row.sestiere || null,
+    sestiere,
   };
 }
 
 function main() {
+  const sestieri = loadSestieri();
   const csv = readFileSync(CSV_PATH, 'utf-8');
   const rows = parseCsv(csv);
   if (rows.length === 0) {
@@ -112,7 +166,7 @@ function main() {
   const headers = headerRow.map((h) => h.trim());
 
   const episodes = dataRows
-    .map((row, i) => toEpisode(headers, row, i + 2)) // +2: 1-based + header row
+    .map((row, i) => toEpisode(headers, row, i + 2, sestieri)) // +2: 1-based + header row
     .filter(Boolean)
     // Gli episodi speciali (senza numero) restano in fondo, nell'ordine del CSV.
     .sort((a, b) => (a.isSpecial || b.isSpecial ? Number(a.isSpecial) - Number(b.isSpecial) : a.episodeNumber - b.episodeNumber));
