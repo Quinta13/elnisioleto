@@ -1,7 +1,7 @@
 import 'leaflet/dist/leaflet.css';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import './styles.css';
-import { loadEpisodes, buildEpisodeGroupIndex } from './episodes.js';
+import { loadEpisodes, buildEpisodeGroupIndex, groupEpisodesByLocation } from './episodes.js';
 import { loadKinds } from './kinds.js';
 import { createMap } from './map.js';
 import { createSearch } from './search.js';
@@ -146,7 +146,9 @@ async function init() {
     return;
   }
 
-  header.setCount(allEpisodes.length);
+  // "Nisioeti raccontati": luoghi distinti, non episodi — se due video raccontano lo
+  // stesso luogo (stesse coordinate) contano come un solo nisioeto.
+  header.setCount(groupEpisodesByLocation(allEpisodes).length);
   header.setSestieri(allEpisodes);
   search.setEpisodes(allEpisodes);
   episodeGroupIndex = buildEpisodeGroupIndex(allEpisodes);
