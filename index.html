@@ -46,7 +46,7 @@
           </p>
           <div class="landing-actions">
             <button class="btn btn-primary" id="btn-explore" type="button">Esplora la mappa</button>
-            <button class="btn btn-secondary" id="btn-kinds" type="button">Tipologie di nisioeti</button>
+            <button class="btn btn-secondary" id="btn-kinds" type="button">Tipologie</button>
             <a
               class="btn btn-secondary"
               href="https://www.instagram.com/elnisioeto/"
@@ -61,50 +61,53 @@
       </section>
 
       <!-- ============ MAPPA ============ -->
-      <section id="view-map" class="view view-map" aria-label="Mappa interattiva degli episodi" hidden>
+      <section id="view-map" class="view view-map" aria-label="Episodi" hidden>
         <header class="map-header" id="map-header">
           <button class="btn-icon" id="btn-back" type="button" aria-label="Torna alla presentazione del progetto">
             <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="#icon-back" /></svg>
           </button>
 
           <div class="map-header-main">
-            <div class="search-wrap">
-              <label class="visually-hidden" for="search-input">Cerca un nisioeto</label>
-              <input
-                type="search"
-                id="search-input"
-                class="search-input"
-                placeholder="Cerca un nisioeto…"
-                autocomplete="off"
-                aria-expanded="false"
-                aria-controls="search-results"
-              />
-              <div class="search-results" id="search-results" hidden></div>
-            </div>
+            <div class="map-header-row">
+              <div class="search-wrap">
+                <label class="visually-hidden" for="search-input">Cerca un nisioeto</label>
+                <input
+                  type="search"
+                  id="search-input"
+                  class="search-input"
+                  placeholder="Cerca un nisioeto…"
+                  autocomplete="off"
+                  aria-expanded="false"
+                  aria-controls="search-results"
+                />
+                <div class="search-results" id="search-results" hidden></div>
+              </div>
 
-            <div class="map-toolbar">
-              <span class="episode-counter" id="map-counter" aria-live="polite">
-                <span class="episode-counter-number">—</span> nisioeti raccontati
-              </span>
-
-              <label class="sestiere-filter">
+              <label class="sestiere-filter map-header-filter">
                 <span class="visually-hidden">Filtra per sestiere</span>
                 <select id="sestiere-select">
                   <option value="">Tutti i sestieri</option>
                 </select>
               </label>
+
+              <span class="episode-counter" id="map-counter" aria-live="polite">
+                <span class="episode-counter-number">—</span> nisioeti raccontati
+              </span>
+
+              <div class="map-header-side">
+                <h1 class="nisioeto-sign map-title">Episodi</h1>
+                <a
+                  class="btn-icon btn-ig-header"
+                  href="https://www.instagram.com/elnisioeto/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Apri il profilo Instagram @elnisioeto"
+                >
+                  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="#icon-instagram" /></svg>
+                </a>
+              </div>
             </div>
           </div>
-
-          <a
-            class="btn-icon btn-ig-header"
-            href="https://www.instagram.com/elnisioeto/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Apri il profilo Instagram @elnisioeto"
-          >
-            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="#icon-instagram" /></svg>
-          </a>
         </header>
 
         <div id="map" class="map-canvas" role="application" aria-label="Mappa di Venezia con gli episodi"></div>
@@ -120,23 +123,37 @@
         </div>
       </section>
 
-      <!-- ============ TIPOLOGIE DI NISIOETI ============ -->
-      <section id="view-kinds" class="view view-kinds" aria-label="Tipologie di nisioeti" hidden>
+      <!-- ============ TIPOLOGIE ============ -->
+      <section id="view-kinds" class="view view-kinds" aria-label="Tipologie" hidden>
         <header class="map-header">
           <button class="btn-icon" id="btn-back-kinds" type="button" aria-label="Torna alla presentazione del progetto">
             <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="#icon-back" /></svg>
           </button>
           <div class="map-header-main">
-            <h1 class="nisioeto-sign kinds-title">Tipologie di nisioeti</h1>
-            <div class="search-wrap kinds-search-wrap">
-              <label class="visually-hidden" for="kinds-search-input">Cerca una tipologia</label>
-              <input
-                type="search"
-                id="kinds-search-input"
-                class="search-input"
-                placeholder="Cerca una tipologia…"
-                autocomplete="off"
-              />
+            <div class="map-header-row">
+              <div class="search-wrap kinds-search-wrap">
+                <label class="visually-hidden" for="kinds-search-input">Cerca una tipologia</label>
+                <input
+                  type="search"
+                  id="kinds-search-input"
+                  class="search-input"
+                  placeholder="Cerca una tipologia…"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="map-header-side">
+                <h1 class="nisioeto-sign kinds-title">Tipologie</h1>
+                <a
+                  class="btn-icon btn-ig-header"
+                  href="https://www.instagram.com/elnisioeto/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Apri il profilo Instagram @elnisioeto"
+                >
+                  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="#icon-instagram" /></svg>
+                </a>
+              </div>
             </div>
           </div>
         </header>
