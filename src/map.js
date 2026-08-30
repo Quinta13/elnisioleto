@@ -139,7 +139,7 @@ function createBarButton({ container, className, html, title, onClick }) {
 
 function createMarkerIcon(group) {
   const primary = group[0];
-  const label = primary.isSpecial ? 'SPECIALE' : `EP.${primary.episodeNumber}`;
+  const label = primary.isSpecial ? 'EXTRA' : `EP.${primary.episodeNumber}`;
   const extra = group.length - 1;
 
   return L.divIcon({
