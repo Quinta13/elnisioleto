@@ -46,6 +46,7 @@
           </p>
           <div class="landing-actions">
             <button class="btn btn-primary" id="btn-explore" type="button">Esplora la mappa</button>
+            <button class="btn btn-secondary" id="btn-kinds" type="button">Tipologie di nisioeti</button>
             <a
               class="btn btn-secondary"
               href="https://www.instagram.com/elnisioeto/"
@@ -119,6 +120,38 @@
         </div>
       </section>
 
+      <!-- ============ TIPOLOGIE DI NISIOETI ============ -->
+      <section id="view-kinds" class="view view-kinds" aria-label="Tipologie di nisioeti" hidden>
+        <header class="map-header">
+          <button class="btn-icon" id="btn-back-kinds" type="button" aria-label="Torna alla presentazione del progetto">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="#icon-back" /></svg>
+          </button>
+          <div class="map-header-main">
+            <h1 class="nisioeto-sign kinds-title">Tipologie di nisioeti</h1>
+            <div class="search-wrap kinds-search-wrap">
+              <label class="visually-hidden" for="kinds-search-input">Cerca una tipologia</label>
+              <input
+                type="search"
+                id="kinds-search-input"
+                class="search-input"
+                placeholder="Cerca una tipologia…"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+        </header>
+
+        <div class="kinds-content">
+          <div class="kinds-grid" id="kinds-grid"></div>
+          <p class="kinds-empty" id="kinds-empty" hidden>Nessuna tipologia trovata</p>
+
+          <div id="kinds-error" class="map-error" hidden role="alert">
+            <p>Non siamo riusciti a caricare le tipologie. Riprova tra poco.</p>
+            <button class="btn btn-secondary" id="btn-retry-kinds" type="button">Riprova</button>
+          </div>
+        </div>
+      </section>
+
       <!-- ============ SCHEDA EPISODIO (drawer / bottom sheet) ============ -->
       <div class="panel-backdrop" id="panel-backdrop" hidden></div>
       <aside
@@ -134,6 +167,24 @@
         </button>
         <div class="panel-content" id="panel-content"></div>
       </aside>
+
+      <!-- ============ DETTAGLIO TIPOLOGIA (modale) ============ -->
+      <div class="kinds-modal-backdrop" id="kinds-modal-backdrop" hidden></div>
+      <div
+        class="kinds-modal"
+        id="kinds-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Dettaglio tipologia"
+        aria-hidden="true"
+        tabindex="-1"
+        hidden
+      >
+        <button class="btn-icon kinds-modal-close" id="kinds-modal-close" type="button" aria-label="Chiudi dettaglio tipologia">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="#icon-close" /></svg>
+        </button>
+        <div class="kinds-modal-content" id="kinds-modal-content"></div>
+      </div>
     </div>
 
     <!-- Sprite SVG icone (inline, nessuna dipendenza esterna) -->

@@ -1,8 +1,9 @@
 // Scheda episodio: drawer laterale su desktop, bottom sheet su mobile.
 // Stessa markup, è il CSS a decidere la posizione in base al viewport.
 import { episodeBadgeLabel } from '../episodes.js';
+import { matchKindsInName } from '../kinds.js';
 
-export function createEpisodePanel({ onClose, onNavigate }) {
+export function createEpisodePanel({ onClose, onNavigate, onOpenKind }) {
   const panel = document.getElementById('episode-panel');
   const backdrop = document.getElementById('panel-backdrop');
   const content = document.getElementById('panel-content');
@@ -12,10 +13,12 @@ export function createEpisodePanel({ onClose, onNavigate }) {
   let lastFocused = null;
   let currentGroup = [];
   let currentIndex = 0;
+  let kinds = [];
 
   function render({ focusNav } = {}) {
     const episode = currentGroup[currentIndex];
     const hasSiblings = currentGroup.length > 1;
+    const matchedKinds = matchKindsInName(episode.nisioletoName, kinds);
 
     content.innerHTML = `
       ${
@@ -38,6 +41,15 @@ export function createEpisodePanel({ onClose, onNavigate }) {
           Guarda il video su Instagram
         </a>
       </div>
+      ${matchedKinds
+        .map(
+          (kind) => `
+        <p class="panel-kind-suggestion">
+          Vuoi approfondire la tipologia ${escapeHtml(kind.name.toLowerCase())}?
+          <button type="button" class="kind-card-link panel-kind-link" data-kind-id="${escapeAttr(kind.id)}">Ecco qui</button>
+        </p>`
+        )
+        .join('')}
     `;
 
     if (hasSiblings) {
@@ -46,6 +58,17 @@ export function createEpisodePanel({ onClose, onNavigate }) {
       });
       if (focusNav) content.querySelector(`[data-nav="${focusNav}"]`)?.focus();
     }
+
+    content.querySelectorAll('.panel-kind-link').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const kind = kinds.find((k) => k.id === btn.dataset.kindId);
+        if (kind) onOpenKind?.(kind);
+      });
+    });
+  }
+
+  function setKinds(list) {
+    kinds = list;
   }
 
   function go(delta) {
@@ -95,7 +118,7 @@ export function createEpisodePanel({ onClose, onNavigate }) {
     else if (e.key === 'ArrowRight' && currentGroup.length > 1) go(1);
   });
 
-  return { open, close, isOpen: () => isOpen };
+  return { open, close, isOpen: () => isOpen, setKinds };
 }
 
 function escapeHtml(str = '') {

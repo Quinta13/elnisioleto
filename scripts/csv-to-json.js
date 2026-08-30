@@ -11,6 +11,10 @@ const SESTIERI_PATH = path.join(__dirname, '..', 'data', 'sestieri_venezia.geojs
 const OUT_DIR = path.join(__dirname, '..', 'public', 'data');
 const OUT_PATH = path.join(OUT_DIR, 'episodes.json');
 
+const KINDS_CSV_PATH = path.join(__dirname, '..', 'data', 'kinds.csv');
+const KINDS_OUT_PATH = path.join(OUT_DIR, 'kinds.json');
+const KINDS_REQUIRED_FIELDS = ['id', 'name', 'description', 'image', 'link'];
+
 const REQUIRED_FIELDS = ['nisioleto_name', 'instagram_url'];
 
 // --- Calcolo del sestiere per point-in-polygon --------------------------
@@ -156,6 +160,51 @@ function toEpisode(headers, rawRow, lineNumber, sestieri) {
   };
 }
 
+function toKind(headers, rawRow, lineNumber) {
+  const row = {};
+  headers.forEach((header, i) => {
+    row[header] = (rawRow[i] ?? '').trim();
+  });
+
+  const warnings = [];
+  for (const field of KINDS_REQUIRED_FIELDS) {
+    if (!row[field]) warnings.push(`campo "${field}" mancante`);
+  }
+  if (warnings.length > 0) {
+    console.warn(`⚠️  Riga ${lineNumber} (id=${row.id || '?'}) di kinds.csv scartata: ${warnings.join(', ')}`);
+    return null;
+  }
+
+  return {
+    id: row.id,
+    name: row.name,
+    description: row.description,
+    image: row.image,
+    link: row.link,
+  };
+}
+
+function convertKinds() {
+  const csv = readFileSync(KINDS_CSV_PATH, 'utf-8');
+  const rows = parseCsv(csv);
+  if (rows.length === 0) {
+    console.warn('⚠️  kinds.csv è vuoto: nessuna tipologia da convertire.');
+    mkdirSync(OUT_DIR, { recursive: true });
+    writeFileSync(KINDS_OUT_PATH, '[]\n');
+    return;
+  }
+
+  const [headerRow, ...dataRows] = rows;
+  const headers = headerRow.map((h) => h.trim());
+
+  const kinds = dataRows.map((row, i) => toKind(headers, row, i + 2)).filter(Boolean);
+
+  mkdirSync(OUT_DIR, { recursive: true });
+  writeFileSync(KINDS_OUT_PATH, JSON.stringify(kinds, null, 2) + '\n');
+
+  console.log(`✅ Generate ${kinds.length} tipologie in public/data/kinds.json`);
+}
+
 function main() {
   const sestieri = loadSestieri();
   const csv = readFileSync(CSV_PATH, 'utf-8');
@@ -180,6 +229,8 @@ function main() {
   writeFileSync(OUT_PATH, JSON.stringify(episodes, null, 2) + '\n');
 
   console.log(`✅ Generati ${episodes.length} episodi in public/data/episodes.json`);
+
+  convertKinds();
 }
 
 main();

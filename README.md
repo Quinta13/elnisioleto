@@ -94,6 +94,35 @@ npm run preview   # per verificarla in locale
 Nessun altro file va toccato: contatore episodi, filtro sestieri e risultati di ricerca sono
 calcolati automaticamente dai dati nel CSV.
 
+## Come aggiungere una nuova tipologia di nisioeto
+
+La sezione "Tipologie di nisioeti" (calle, campo, fondamenta, ponte, rio, corte, sotoportego...) è
+generata da [`data/kinds.csv`](data/kinds.csv), sullo stesso principio degli episodi.
+
+1. Aggiungi l'immagine della tipologia in `public/images/kinds/` (es. `campo.png`).
+2. Apri `data/kinds.csv` e aggiungi una riga con le colonne:
+
+   ```
+   id,name,description,image,link
+   ```
+
+   Esempio:
+
+   ```csv
+   campo,Campo,I campi sono le piazze di Venezia,campo.png,https://www.instagram.com/p/XXXXX/
+   ```
+
+   `image` è solo il nome del file dentro `public/images/kinds/`, non il percorso completo.
+
+   `name` va scelto con cura: quando compare come parola intera (senza contare accenti/maiuscole)
+   nel nome di un nisioeto, la scheda dell'episodio mostra automaticamente un suggerimento
+   "Vuoi approfondire la tipologia campo? Ecco qui" che apre il dettaglio della tipologia. Un nome
+   composto (es. "Sotoportego e Calle del Vina") può far scattare più suggerimenti insieme, uno per
+   ogni tipologia riconosciuta nel nome.
+
+3. Fai commit e push su `main`: la GitHub Action rigenererà automaticamente
+   `public/data/kinds.json` e pubblicherà la nuova tipologia nella sezione dedicata del sito.
+
 ## Pubblicazione su GitHub Pages
 
 1. Crea un repository su GitHub (es. `elnisioleto`) e fai push di questo progetto sul branch
@@ -123,25 +152,31 @@ Se in futuro vorrai un dominio personalizzato (es. `elnisioeto.it`):
 
 ```
 elnisioleto/
-├── index.html                  markup della pagina (landing + vista mappa)
+├── index.html                  markup della pagina (landing + vista mappa + tipologie)
 ├── data/episodes.csv           dati sorgente: un episodio per riga
-├── scripts/csv-to-json.js      converte il CSV in JSON con validazione
+├── data/kinds.csv              dati sorgente: una tipologia di nisioeto per riga
+├── scripts/csv-to-json.js      converte i CSV in JSON con validazione
 ├── public/
 │   ├── data/episodes.json      generato automaticamente, non modificare a mano
-│   ├── images/                 logo del progetto (nessuna immagine per episodio)
+│   ├── data/kinds.json         generato automaticamente, non modificare a mano
+│   ├── images/                 logo del progetto
+│   ├── images/kinds/           un'immagine per tipologia di nisioeto
 │   ├── favicon.svg
 │   ├── og-image.png            placeholder, sostituiscilo con un'immagine 1200×630
 │   ├── robots.txt
 │   └── sitemap.xml
 ├── src/
-│   ├── main.js                 bootstrap app, routing landing/mappa, deep link
-│   ├── episodes.js             caricamento/validazione dati
+│   ├── main.js                 bootstrap app, routing landing/mappa/tipologie, deep link
+│   ├── episodes.js             caricamento/validazione dati episodi
+│   ├── kinds.js                caricamento dati tipologie
 │   ├── map.js                  mappa Leaflet, marker e cluster custom
 │   ├── search.js                ricerca client-side
 │   ├── styles.css              tutto lo stile del sito
 │   └── components/
 │       ├── episode-panel.js    drawer (desktop) / bottom sheet (mobile)
-│       └── header.js           contatore, filtro sestiere, reset vista
+│       ├── header.js           contatore, filtro sestiere, reset vista
+│       ├── kinds-view.js       griglia (anteprime) + ricerca delle tipologie
+│       └── kinds-modal.js      modale di dettaglio tipologia, navigabile con le frecce
 └── .github/workflows/deploy.yml
 ```
 

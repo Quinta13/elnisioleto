@@ -2,24 +2,30 @@ import 'leaflet/dist/leaflet.css';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import './styles.css';
 import { loadEpisodes, buildEpisodeGroupIndex } from './episodes.js';
+import { loadKinds } from './kinds.js';
 import { createMap } from './map.js';
 import { createSearch } from './search.js';
 import { createEpisodePanel } from './components/episode-panel.js';
 import { createMapHeader } from './components/header.js';
+import { createKindsView } from './components/kinds-view.js';
 
 const viewLanding = document.getElementById('view-landing');
 const viewMap = document.getElementById('view-map');
+const viewKinds = document.getElementById('view-kinds');
 const btnExplore = document.getElementById('btn-explore');
+const btnKinds = document.getElementById('btn-kinds');
 const mapErrorBox = document.getElementById('map-error');
 const btnRetry = document.getElementById('btn-retry');
 
 let allEpisodes = [];
+let allKinds = [];
 let episodeGroupIndex = new Map();
 let mapController = null;
 
 const panel = createEpisodePanel({
   onClose: () => setEpisodeInUrl(null),
   onNavigate: (episode) => setEpisodeInUrl(episode),
+  onOpenKind: (kind) => openKindDetail(kind),
 });
 
 const search = createSearch({
@@ -31,24 +37,33 @@ const header = createMapHeader({
   onBack: () => showView('landing'),
 });
 
+const kindsView = createKindsView({
+  onBack: () => showView('landing'),
+  onRetry: () => loadKindsData(),
+});
+
 btnExplore.addEventListener('click', () => showView('map'));
+btnKinds.addEventListener('click', () => showView('kinds'));
 
 btnRetry.addEventListener('click', () => init());
 
 function showView(name) {
-  const showMap = name === 'map';
-  viewLanding.hidden = showMap;
-  viewMap.hidden = !showMap;
-  viewLanding.classList.toggle('is-active', !showMap);
-  viewMap.classList.toggle('is-active', showMap);
+  viewLanding.hidden = name !== 'landing';
+  viewMap.hidden = name !== 'map';
+  viewKinds.hidden = name !== 'kinds';
+  viewLanding.classList.toggle('is-active', name === 'landing');
+  viewMap.classList.toggle('is-active', name === 'map');
+  viewKinds.classList.toggle('is-active', name === 'kinds');
 
-  if (showMap) {
+  if (name === 'map') {
     updateUrlView('map');
     // Il container deve essere visibile PRIMA di creare la mappa: Leaflet inizializzato
     // su un elemento display:none calcola una size 0x0 e ogni flyTo successivo genera
     // coordinate NaN. ensureMap() va quindi chiamato solo dopo aver tolto "hidden".
     ensureMap();
     requestAnimationFrame(() => mapController.map.invalidateSize());
+  } else if (name === 'kinds') {
+    updateUrlView('kinds');
   } else {
     updateUrlView(null);
   }
@@ -62,6 +77,23 @@ function ensureMap() {
     onResetView: () => header.resetFilter(),
   });
   mapController.setEpisodes(allEpisodes);
+}
+
+async function loadKindsData() {
+  try {
+    allKinds = await loadKinds();
+    kindsView.render(allKinds);
+    panel.setKinds(allKinds);
+  } catch (err) {
+    console.error(err);
+    kindsView.showError();
+  }
+}
+
+function openKindDetail(kind) {
+  panel.close({ restoreFocus: false });
+  showView('kinds');
+  kindsView.openKindById(kind.id);
 }
 
 function updateUrlView(view) {
@@ -119,9 +151,13 @@ async function init() {
   search.setEpisodes(allEpisodes);
   episodeGroupIndex = buildEpisodeGroupIndex(allEpisodes);
 
+  await loadKindsData();
+
   const params = new URLSearchParams(window.location.search);
   if (params.get('view') === 'map' || params.get('episode')) {
     showView('map');
+  } else if (params.get('view') === 'kinds') {
+    showView('kinds');
   }
   openEpisodeFromUrl();
 }
