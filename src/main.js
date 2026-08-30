@@ -107,6 +107,7 @@ function applyFilter(sestiere) {
   const filtered = sestiere ? allEpisodes.filter((e) => e.sestiere === sestiere) : allEpisodes;
   mapController.setEpisodes(filtered);
   search.setEpisodes(filtered);
+  header.setFilteredCount(groupEpisodesByLocation(filtered).length);
 }
 
 function openGroup(group, startIndex = 0) {

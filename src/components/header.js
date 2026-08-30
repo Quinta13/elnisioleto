@@ -2,12 +2,20 @@
 import { getSestieri } from '../episodes.js';
 
 export function createMapHeader({ onSestiereChange, onBack }) {
-  const counterEls = document.querySelectorAll('.episode-counter-number, .landing-count-number');
+  // Il contatore in landing riflette sempre il totale del progetto; quello nell'header
+  // della mappa segue anche il filtro sestiere (setFilteredCount).
+  const mapCounterEls = document.querySelectorAll('.episode-counter-number');
+  const landingCounterEls = document.querySelectorAll('.landing-count-number');
   const sestiereSelect = document.getElementById('sestiere-select');
   const backBtn = document.getElementById('btn-back');
 
   function setCount(n) {
-    counterEls.forEach((el) => (el.textContent = n));
+    mapCounterEls.forEach((el) => (el.textContent = n));
+    landingCounterEls.forEach((el) => (el.textContent = n));
+  }
+
+  function setFilteredCount(n) {
+    mapCounterEls.forEach((el) => (el.textContent = n));
   }
 
   function setSestieri(episodes) {
@@ -28,5 +36,5 @@ export function createMapHeader({ onSestiereChange, onBack }) {
     onSestiereChange('');
   }
 
-  return { setCount, setSestieri, resetFilter };
+  return { setCount, setFilteredCount, setSestieri, resetFilter };
 }
