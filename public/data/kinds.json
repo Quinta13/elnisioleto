@@ -7,11 +7,32 @@
     "link": "https://www.instagram.com/p/CaZdrd9r1tF/?img_index=1"
   },
   {
+    "id": "callesella",
+    "name": "Callesella",
+    "description": "È una calle più angusta e ristretta delle altre.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/CicCcn9LDSn/?img_index=1"
+  },
+  {
+    "id": "calle larga",
+    "name": "Calle larga",
+    "description": "E' detta così per essere più ampia e spaziosa di molte altre strettissime. La denominazione larga fa sempre riferimento alle calli vicine; quindi è una calle più larga rispetto a quelle che si trovano nei dintorni.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/CjAIKvqKxWa/?img_index=1"
+  },
+  {
     "id": "fondamenta",
     "name": "Fondamenta",
     "description": "È una calle che costeggia un canale o un rio.",
     "image": "tmp.png",
     "link": "https://www.instagram.com/p/Caz7oAqLtW7/?img_index=1"
+  },
+  {
+    "id": "riva",
+    "name": "Riva",
+    "description": "Nome dato ad alcune fondamenta che danno sul Canal Grande o sulla laguna",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/Cjk0zzoqPzv/?img_index=1"
   },
   {
     "id": "ramo",
@@ -21,10 +42,185 @@
     "link": "https://www.instagram.com/p/CbLDg2BArl0/?img_index=1"
   },
   {
+    "id": "ruga",
+    "name": "Ruga",
+    "description": "Probabilmente derivato dal francese rue, si indicava una strada fiancheggiata da abitazioni e botteghe. Nome nato in un periodo di scarsa urbanizzazione, quando c'erano ancora poche strade.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/CcTS-6EL0R9/?img_index=1"
+  },
+  {
+    "id": "crosera",
+    "name": "Crosera",
+    "description": "Luogo dove mettono capo, e s'attraversano le strade. Più volte s'incontra tale denominazione in Venezia.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/CnPg9taLJ4R/?img_index=1"
+  },
+  {
+    "id": "sotoportego",
+    "name": "Sotoportego",
+    "description": "Tratto di strada che passa sotto qualche edificio. In passato, era anche detto sottovolto.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/Ch4VGLAryGO/?img_index=1"
+  },
+  {
     "id": "ponte",
     "name": "Ponte",
     "description": "Caratteristica della viabilità veneziana, per attraversare a piedi i canali e rii.",
     "image": "tmp.png",
     "link": "https://www.instagram.com/p/Cbf8cwvLfbs/?img_index=1"
+  },
+  {
+    "id": "campo",
+    "name": "Campo",
+    "description": "Spazio più o meno ampio attorniato da edifici. Si chiamano così perchè in origine erano veri e propri prati per ricavare pascolo o coltivati a orto. Ce ne sono circa 102. Solitamente devono il nome alla chiesa o al palazzo che vi era affacciato.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/CbzecQSA1jL/?img_index=1"
+  },
+  {
+    "id": "campiello",
+    "name": "Campiello",
+    "description": "Campo ma di piccole dimensioni. In tutta Venezia ce ne sono circa 130.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/CdJVvPnq0XK/?img_index=1"
+  },
+  {
+    "id": "corte",
+    "name": "Corte",
+    "description": "Campiello circondato da case e solitamente con un solo accesso. Spesso era uno spazio privato,chiuso da cancelli e centro di una microscopica vita sociale",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/CdgSV6mqE9u/?img_index=1"
+  },
+  {
+    "id": "salizada",
+    "name": "Salizada",
+    "description": "Termine che indica le prime calli lastricate da masegni (blocchi di pietra di trachite). Il termine deriva dal fatto che lastricare la strada di questa pietre era detto salizare Inizialmente le strade e i campi erano in terra battuta, quindi vennero con il tempo ricoperte di mattoni in cotto. Si decide infine intorno al XIX sec. di utilizzare blocchi di trachite.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/Ccw9mYEKMme/?img_index=1"
+  },
+  {
+    "id": "lista",
+    "name": "Lista",
+    "description": "Zona con presenza di liste, righe bianche in pietra d'Istria, che delimitavano le residenze degli ambasciatori stranieri. Il termine deriva da far el liston, cioè una striscia di pietre bianche entro cui gli ambasciatori godevano particolari immunità. Durante l'occupazione austriaca alcune liste servivano ad indicare ai soldati, che non conoscevano l'italiano, la strada più breve per raggiungere la stazione.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/Cd5sqT2qtev/?img_index=1"
+  },
+  {
+    "id": "rio",
+    "name": "Rio",
+    "description": "I rii costituiscono la viabilità acquea di Venezia. Questo termine indica esclusivamente i canali, naturali o artificiali, costeggiati da edifici o strade che separano le singole isole di cui è composto il centro storico. Nella toponomastica cittadina alcuni dei rii di dimensione minore vengono denominati con il termine di rielo. I rii in tutto sono circa 180.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/CeLGmCkKEJs/?img_index=1"
+  },
+  {
+    "id": "rio terà",
+    "name": "Rio terà",
+    "description": "Strada ottenuta con l'interramento di un rio o un canale. L'operazione di interramento facilitava il transito pedonale.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/Cg1Vm6nL8i9/?img_index=1"
+  },
+  {
+    "id": "barbaria",
+    "name": "Barbaria",
+    "description": "Questo nome non identifica una particolare tipologia di strada, ma ne dice la sua discussa origine. È l'unica strada di Venezia chiamata così. Alcuni vogliono che il luogo si dicesse Barbaria, quasi luogo selvaggio, da una antica boscaglia. Altri, da alcune botteghe da barbiere. Altri, dal traffico che qui facevano di tavole alcuni montanari, considerata gente rozza e barbara. Altri dall'esser destinate le tavole qui accumulate pei paesi della Barbaria. Quest'ultima è la più verosimile.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/Ce04F4wqnce/?img_index=1"
+  },
+  {
+    "id": "spadaria",
+    "name": "Spadaria",
+    "description": "Strada destinata ai fabbricanti di spade.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/CkbHH4eKFAs/?img_index=1"
+  },
+  {
+    "id": "spechieri",
+    "name": "Spechieri",
+    "description": "Zona in cui sorgevano botteghe che costruivano specchi e li molavano. La mola è stata inventata da un artigiano veneziano, Antonio Bertolini.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/CfBs23frPvq/?img_index=1"
+  },
+  {
+    "id": "marzaria",
+    "name": "Marzaria",
+    "description": "Strada fiancheggiata da molte botteghe di merci. L'arte dei Marzieri (merciai) è molto antica; abbiamo testimonianze del 942 che parlano di questo mestiere. All'inizio i prodotti venduti riguardavano il mondo tessile; con il tempo, vennero venduti vari tipi di merce. Collegando il centro politico e quello economico, per la Serenissima era una strada molto importante, anche come rappresentativa della Repubblica.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/CgY0vr0K_PH/?img_index=1"
+  },
+  {
+    "id": "pescaria",
+    "name": "Pescaria",
+    "description": "Luogo destinato alla compravendita del pesce. Mentre i pescatori erano a migliaia, i cosidetti compravendi pesce erano, al finire della repubblica, 158 soltanto. Tala mestiere si riservava ai soli pescatori di san Nicolò e di Poveglia, dopo che avessero pescato per 20 anni, e che avessere compiuto 50 anni. In questo modo si voleva dare una ricompensa a quegli uomini benemeriti che avevano travagliato nella pesca.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/CljV7hrr-Xu/?img_index=1"
+  },
+  {
+    "id": "bareteri",
+    "name": "Bareteri",
+    "description": "Zona in cui c'erano molte botteghe che fabbricavano e vendevano berrette.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/Cf1TWSjqn5l/?img_index=1"
+  },
+  {
+    "id": "borgoloco",
+    "name": "Borgoloco",
+    "description": "Da Borgo a loco, zona in cui si trovavano numerosi alberghetti, dove poter mangiare e dormire. Si trovano nei pressi di campo Santa Marina e a san Lorenzo.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/CeeD7Roq2D5/?img_index=1"
+  },
+  {
+    "id": "becarie",
+    "name": "Becarie",
+    "description": "Luoghi preposto allo smercio delle carni. Becher era il macellaio addetto alla preparazione delle carni e alla loro vendita al minuto. La provvigione delle carni commestibili non fu mai trascurata dai Veneziani, riscontrandosi fino dagli antichi tempi l'istituzione d'un uffizio di tre nobili, detti «Sopra le Beccarie e pubblici Macelli», il cui capitolare registra le deliberazioni emanate sopra questa materia cominciando dal 1249.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/CynjDIMLF_r/?img_index=1"
+  },
+  {
+    "id": "pegola",
+    "name": "Pegola",
+    "description": "Zona in cui abitavano coloro che lavoravano la pece, per ricoprire gli scafi delle imbarcazioni. Questi lavoratori erano chiamati anche calafai o pegoloti.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/CfakF75KIMy/?img_index=1"
+  },
+  {
+    "id": "erbaria",
+    "name": "Erbaria",
+    "description": "Fondamenta dove si vendevano all'ingrosso gli erbaggi e la frutta, provenienti dalle isole vicine e dalla terraferma. Esisteva fin dal XIII sec; dapprima in legno, nel 1398 fu selciata in pietra. Lapide: “Il doge fa sapere come da ordine degli illustrissimi ed eccellentissimi provveditori al sale, i quali hanno la totale giurisdizione sull’isola di Rialto, essendo risoluta e ferma intenzione di loro eccellenze riguardo gli ortolani di Chioggia, Pellestrina, Malamocco, S. Erasmo, Vignole, Giudecca, Treporti e di Venezia (questa città) e Murano che vengono a vendere i loro prodotti in questa città nell’isola di Rialto, soggetta al magistrato delle stesse eccellenze (= i magistrati di cui sopra), negli spazi a loro assegnati e nell’erbaria chiamata pescheria vecchia; che gli stessi ortolani possano smaltire (vendere) la merce, che portano a beneficio e a favore universale della città, in tutta sicurezza e che non siano molestati e che non si arrechi loro alcun danno da chicchessia fruttivendolo, verduraio o altra persona. Si ammonisce pubblicamente che chiunque e in qualunque momento dell’anno ardisca arrecare danno ai suddetti ortolani, sia salendo a bordo delle barche ormeggiate alle rive di questo mercato contro la loro volontà, sia di prendere o mangiare la loro merce in maniera impropria, sia di prelevarla dalle loro barche senza averla prima pagata; sarà severamente punito con la pena irrevocabile di tre tiri di corda oppure, se non possibile, con la messa alla berlina per un’ora oppure con altre pene ad arbitrio dei magistrati stessi. Ciò perché risulta conveniente che le persone che portano in questa città beni alimentari (= vituaria) siano trattate bene. A tal fine gli ortolani sono obbligati ed è a loro carico (= incarbicati), in caso di molestia subita, recarsi dal magistrato a darne notizia spiegando l’accaduto (= e contenuto) perché lo stesso possa provvedere alle sue decisioni, pena di essere anche loro sottoposti a provvedimenti a giudizio di loro eccellenze. La presente ordinanza sia scolpita su pietra di marmo perché chiunque possa leggerla”.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/Cflzx1cqxyh/?img_index=1"
+  },
+  {
+    "id": "campazzo",
+    "name": "Campazzo",
+    "description": "Campo che rispetto agli altri era mal tenuto, poco curato.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/Cf_IeUsr5nQ/?img_index=1"
+  },
+  {
+    "id": "ferali",
+    "name": "Ferali",
+    "description": "Luogo di produzione di fanali in ferro o in legno, sia per privati che per l'illuminazione pubblica. Il 23 maggio 1732 fu decretata dal Senato l'illuminazione pubblica dell'intera città. Nel 1795 i fanali erano 1952 (457 San Marco, 359 Castello, 240 San Polo, 430 Cannareggio, 193 Santa Croce, 273 Dorsoduro).",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/CgJ5Uq0KKpO/?img_index=1"
+  },
+  {
+    "id": "sabionera",
+    "name": "Sabionera",
+    "description": "Luogo in cui i sabioneri avevano i depositi di sabbia e di ghiaia che poi vendevano. Sabbia e ghiaia erano materiali ricercati sia nell'edilizia che per zavorrare le navi. Nel 1773 si contavano 37 capimastri e 4 garzoni di questa arte.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/CgmLCjBqRWb/?img_index=1"
+  },
+  {
+    "id": "paludo",
+    "name": "Paludo",
+    "description": "Questa denominazione, altrove ripetuta, proviene da terreno anticamente paludoso.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/CrfYHnoKFNh/?img_index=1"
+  },
+  {
+    "id": "squero",
+    "name": "Squero",
+    "description": "Luogo in cui si fabbricavano le imbarcazioni di piccole dimensioni. Probabilmente il termine deriva da ”squadra” (squara in veneziano), lo strumento usato per costruire in asse le imbarcazioni. Anche i privati potevano avere uno squero, in particolare i commercianti, che avevano bisogno di imbarcazioni per il loro lavoro. Data l’importanza delle imbarcazioni a Venezia, questo nizioleto lo si trova frequentemente.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/C_AKSJ3KgGH/?img_index=1"
   }
 ]

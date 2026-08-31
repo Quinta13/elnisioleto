@@ -10,6 +10,8 @@ export function createKindsView({ onBack, onRetry }) {
   const backBtn = document.getElementById('btn-back-kinds');
   const retryBtn = document.getElementById('btn-retry-kinds');
   const searchInput = document.getElementById('kinds-search-input');
+  const kindsCounterEls = document.querySelectorAll('.kinds-counter-number');
+  const kindsCounterLabelEls = document.querySelectorAll('.kinds-counter-label');
 
   const modal = createKindsModal();
 
@@ -21,8 +23,8 @@ export function createKindsView({ onBack, onRetry }) {
   searchInput.addEventListener('input', () => applyFilter(searchInput.value));
 
   function matches(kind, query) {
-    const haystack = [kind.name, kind.description].filter(Boolean).join(' ').toLowerCase();
-    return haystack.includes(query);
+    const haystack = (kind.name || '').trim().toLowerCase();
+    return haystack.startsWith(query);
   }
 
   function applyFilter(query) {
@@ -31,10 +33,18 @@ export function createKindsView({ onBack, onRetry }) {
     renderGrid();
   }
 
+  function setCount(n) {
+    kindsCounterEls.forEach((el) => (el.textContent = n));
+    kindsCounterLabelEls.forEach((el) => {
+      el.textContent = n === 1 ? 'tipologia' : 'tipologie';
+    });
+  }
+
   function renderGrid() {
     grid.innerHTML = visibleKinds.map(cardHtml).join('');
     grid.hidden = visibleKinds.length === 0;
     emptyBox.hidden = visibleKinds.length !== 0;
+    setCount(visibleKinds.length);
 
     grid.querySelectorAll('.kind-card').forEach((btn) => {
       btn.addEventListener('click', () => modal.open(visibleKinds, Number(btn.dataset.index)));
@@ -64,7 +74,7 @@ export function createKindsView({ onBack, onRetry }) {
     modal.open(allKinds, index);
   }
 
-  return { render, showError, openKindById };
+  return { render, showError, openKindById, setCount };
 }
 
 function cardHtml(kind, index) {

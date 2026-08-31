@@ -325,6 +325,18 @@ a {
   margin-left: auto;
 }
 
+.kinds-header-side {
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+}
+
+.kinds-header-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .search-wrap {
   position: relative;
   flex: 1 1 18rem;
@@ -592,9 +604,9 @@ a {
 
 .kinds-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  grid-template-columns: 1fr;
   gap: 1rem;
-  max-width: 72rem;
+  max-width: 22rem;
   margin: 0 auto;
 }
 
@@ -650,6 +662,27 @@ a {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.kinds-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-height: 44px;
+  padding: 0.6rem 0.9rem;
+  border: 1.5px solid var(--color-nero);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--color-mattone);
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.kinds-counter-number {
+  font-size: 1.35em;
 }
 
 /* ---------- Link Instagram discreto (riusato anche nella modale) ---------- */
@@ -1061,5 +1094,24 @@ a {
   .search-wrap {
     flex: 1;
     max-width: 24rem;
+  }
+
+  .kinds-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 44rem;
+  }
+}
+
+@media (min-width: 960px) {
+  .kinds-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 64rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .kinds-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    max-width: 80rem;
   }
 }
