@@ -16,7 +16,7 @@
   {
     "id": "calle larga",
     "name": "Calle larga",
-    "description": "E' detta così per essere più ampia e spaziosa di molte altre strettissime. La denominazione larga fa sempre riferimento alle calli vicine; quindi è una calle più larga rispetto a quelle che si trovano nei dintorni.",
+    "description": "E' detta così per essere più ampia e spaziosa di molte altre strettissime. La denominazione \"larga\" fa sempre riferimento alle calli vicine; quindi è una calle più larga rispetto a quelle che si trovano nei dintorni.",
     "image": "tmp.png",
     "link": "https://www.instagram.com/p/CjAIKvqKxWa/?img_index=1"
   },
@@ -51,14 +51,14 @@
   {
     "id": "crosera",
     "name": "Crosera",
-    "description": "Luogo dove mettono capo, e s'attraversano le strade. Più volte s'incontra tale denominazione in Venezia.",
+    "description": "Luogo dove mettono capo, e s'attraversano le strade.",
     "image": "tmp.png",
     "link": "https://www.instagram.com/p/CnPg9taLJ4R/?img_index=1"
   },
   {
     "id": "sotoportego",
     "name": "Sotoportego",
-    "description": "Tratto di strada che passa sotto qualche edificio. In passato, era anche detto sottovolto.",
+    "description": "Tratto di strada che passa sotto qualche edificio. In passato, era anche detto 'sottovolto'.",
     "image": "tmp.png",
     "link": "https://www.instagram.com/p/Ch4VGLAryGO/?img_index=1"
   },
@@ -72,42 +72,42 @@
   {
     "id": "campo",
     "name": "Campo",
-    "description": "Spazio più o meno ampio attorniato da edifici. Si chiamano così perchè in origine erano veri e propri prati per ricavare pascolo o coltivati a orto. Ce ne sono circa 102. Solitamente devono il nome alla chiesa o al palazzo che vi era affacciato.",
+    "description": "Spazio più o meno ampio attorniato da edifici. Si chiamano così perchè in origine erano veri e propri prati per ricavare pascolo o coltivati a orto.",
     "image": "tmp.png",
     "link": "https://www.instagram.com/p/CbzecQSA1jL/?img_index=1"
   },
   {
     "id": "campiello",
     "name": "Campiello",
-    "description": "Campo ma di piccole dimensioni. In tutta Venezia ce ne sono circa 130.",
+    "description": "Campo ma di piccole dimensioni.",
     "image": "tmp.png",
     "link": "https://www.instagram.com/p/CdJVvPnq0XK/?img_index=1"
   },
   {
     "id": "corte",
     "name": "Corte",
-    "description": "Campiello circondato da case e solitamente con un solo accesso. Spesso era uno spazio privato,chiuso da cancelli e centro di una microscopica vita sociale",
+    "description": "Campiello circondato da case e solitamente con un solo accesso. Spesso era uno spazio privato, chiuso da cancelli e centro di una microscopica vita sociale.",
     "image": "tmp.png",
     "link": "https://www.instagram.com/p/CdgSV6mqE9u/?img_index=1"
   },
   {
     "id": "salizada",
     "name": "Salizada",
-    "description": "Termine che indica le prime calli lastricate da masegni (blocchi di pietra di trachite). Il termine deriva dal fatto che lastricare la strada di questa pietre era detto salizare Inizialmente le strade e i campi erano in terra battuta, quindi vennero con il tempo ricoperte di mattoni in cotto. Si decide infine intorno al XIX sec. di utilizzare blocchi di trachite.",
+    "description": "Termine che indica le prime calli lastricate da masegni (blocchi di pietra di trachite). Il termine deriva dal fatto che lastricare la strada di questa pietre era detto salizare Inizialmente le strade e i campi erano in terra battuta, quindi vennero con il tempo ricoperte di mattoni in cotto.",
     "image": "tmp.png",
     "link": "https://www.instagram.com/p/Ccw9mYEKMme/?img_index=1"
   },
   {
     "id": "lista",
     "name": "Lista",
-    "description": "Zona con presenza di liste, righe bianche in pietra d'Istria, che delimitavano le residenze degli ambasciatori stranieri. Il termine deriva da far el liston, cioè una striscia di pietre bianche entro cui gli ambasciatori godevano particolari immunità. Durante l'occupazione austriaca alcune liste servivano ad indicare ai soldati, che non conoscevano l'italiano, la strada più breve per raggiungere la stazione.",
+    "description": "Zona con presenza di 'liste', righe bianche in pietra d'Istria, che delimitavano le residenze degli ambasciatori stranieri. Il termine deriva da far el liston', cioè una striscia di pietre bianche entro cui gli ambasciatori godevano particolari immunità. Durante l'occupazione austriaca alcune liste servivano ad indicare ai soldati, che non conoscevano l'italiano, la strada più breve per raggiungere la stazione.",
     "image": "tmp.png",
     "link": "https://www.instagram.com/p/Cd5sqT2qtev/?img_index=1"
   },
   {
     "id": "rio",
     "name": "Rio",
-    "description": "I rii costituiscono la viabilità acquea di Venezia. Questo termine indica esclusivamente i canali, naturali o artificiali, costeggiati da edifici o strade che separano le singole isole di cui è composto il centro storico. Nella toponomastica cittadina alcuni dei rii di dimensione minore vengono denominati con il termine di rielo. I rii in tutto sono circa 180.",
+    "description": "I rii costituiscono la viabilità acquea di Venezia. Questo termine indica esclusivamente i canali, naturali o artificiali, costeggiati da edifici o strade che separano le singole isole di cui è composto il centro storico. Nella toponomastica cittadina alcuni dei rii di dimensione minore vengono denominati con il termine di rielo.",
     "image": "tmp.png",
     "link": "https://www.instagram.com/p/CeLGmCkKEJs/?img_index=1"
   },
@@ -149,7 +149,7 @@
   {
     "id": "pescaria",
     "name": "Pescaria",
-    "description": "Luogo destinato alla compravendita del pesce. Mentre i pescatori erano a migliaia, i cosidetti compravendi pesce erano, al finire della repubblica, 158 soltanto. Tala mestiere si riservava ai soli pescatori di san Nicolò e di Poveglia, dopo che avessero pescato per 20 anni, e che avessere compiuto 50 anni. In questo modo si voleva dare una ricompensa a quegli uomini benemeriti che avevano travagliato nella pesca.",
+    "description": "Luogo destinato alla compravendita del pesce. Mentre i pescatori erano a migliaia, i cosidetti 'compravendi pesce' erano, al finire della repubblica, 158 soltanto. Tala mestiere si riservava ai soli pescatori di San Nicolò e di Poveglia, dopo che avessero pescato per 20 anni, e che avessere compiuto 50 anni. In questo modo si voleva dare una ricompensa a quegli uomini benemeriti che avevano travagliato nella pesca.",
     "image": "tmp.png",
     "link": "https://www.instagram.com/p/CljV7hrr-Xu/?img_index=1"
   },
@@ -163,14 +163,21 @@
   {
     "id": "borgoloco",
     "name": "Borgoloco",
-    "description": "Da Borgo a loco, zona in cui si trovavano numerosi alberghetti, dove poter mangiare e dormire. Si trovano nei pressi di campo Santa Marina e a san Lorenzo.",
+    "description": "Da \"Borgo a loco\", zona in cui si trovavano numerosi alberghetti, dove poter mangiare e dormire. Si trovano nei pressi di campo Santa Marina e a San Lorenzo.",
     "image": "tmp.png",
     "link": "https://www.instagram.com/p/CeeD7Roq2D5/?img_index=1"
   },
   {
+    "id": "nomboli",
+    "name": "Nomboli",
+    "description": "Luogo che ricorda la presenza di un macellaio. Il nombolo era il quarto posteriore del manzo, che venive esposto nel negozio dal macellaio.",
+    "image": "tmp.png",
+    "link": "https://www.instagram.com/p/CeUG60yL5LL/?img_index=1"
+  },
+  {
     "id": "becarie",
     "name": "Becarie",
-    "description": "Luoghi preposto allo smercio delle carni. Becher era il macellaio addetto alla preparazione delle carni e alla loro vendita al minuto. La provvigione delle carni commestibili non fu mai trascurata dai Veneziani, riscontrandosi fino dagli antichi tempi l'istituzione d'un uffizio di tre nobili, detti «Sopra le Beccarie e pubblici Macelli», il cui capitolare registra le deliberazioni emanate sopra questa materia cominciando dal 1249.",
+    "description": "Luoghi preposto allo smercio delle carni. Becher era il macellaio addetto alla preparazione delle carni e alla loro vendita al minuto. La provvigione delle carni commestibili non fu mai trascurata dai Veneziani, riscontrandosi fino dagli antichi tempi l'istituzione d'un uffizio di tre nobili, detti \"Sopra le Beccarie e pubblici Macelli\", il cui capitolare registra le deliberazioni emanate sopra questa materia cominciando dal 1249.",
     "image": "tmp.png",
     "link": "https://www.instagram.com/p/CynjDIMLF_r/?img_index=1"
   },
@@ -184,7 +191,7 @@
   {
     "id": "erbaria",
     "name": "Erbaria",
-    "description": "Fondamenta dove si vendevano all'ingrosso gli erbaggi e la frutta, provenienti dalle isole vicine e dalla terraferma. Esisteva fin dal XIII sec; dapprima in legno, nel 1398 fu selciata in pietra. Lapide: “Il doge fa sapere come da ordine degli illustrissimi ed eccellentissimi provveditori al sale, i quali hanno la totale giurisdizione sull’isola di Rialto, essendo risoluta e ferma intenzione di loro eccellenze riguardo gli ortolani di Chioggia, Pellestrina, Malamocco, S. Erasmo, Vignole, Giudecca, Treporti e di Venezia (questa città) e Murano che vengono a vendere i loro prodotti in questa città nell’isola di Rialto, soggetta al magistrato delle stesse eccellenze (= i magistrati di cui sopra), negli spazi a loro assegnati e nell’erbaria chiamata pescheria vecchia; che gli stessi ortolani possano smaltire (vendere) la merce, che portano a beneficio e a favore universale della città, in tutta sicurezza e che non siano molestati e che non si arrechi loro alcun danno da chicchessia fruttivendolo, verduraio o altra persona. Si ammonisce pubblicamente che chiunque e in qualunque momento dell’anno ardisca arrecare danno ai suddetti ortolani, sia salendo a bordo delle barche ormeggiate alle rive di questo mercato contro la loro volontà, sia di prendere o mangiare la loro merce in maniera impropria, sia di prelevarla dalle loro barche senza averla prima pagata; sarà severamente punito con la pena irrevocabile di tre tiri di corda oppure, se non possibile, con la messa alla berlina per un’ora oppure con altre pene ad arbitrio dei magistrati stessi. Ciò perché risulta conveniente che le persone che portano in questa città beni alimentari (= vituaria) siano trattate bene. A tal fine gli ortolani sono obbligati ed è a loro carico (= incarbicati), in caso di molestia subita, recarsi dal magistrato a darne notizia spiegando l’accaduto (= e contenuto) perché lo stesso possa provvedere alle sue decisioni, pena di essere anche loro sottoposti a provvedimenti a giudizio di loro eccellenze. La presente ordinanza sia scolpita su pietra di marmo perché chiunque possa leggerla”.",
+    "description": "Fondamenta dove si vendevano all'ingrosso gli erbaggi e la frutta, provenienti dalle isole vicine e dalla terraferma. Esisteva fin dal XIII sec; dapprima in legno, nel 1398 fu selciata in pietra. Lapide: “Il doge fa sapere come da ordine degli illustrissimi ed eccellentissimi provveditori al sale, i quali hanno la totale giurisdizione sull’isola di Rialto, essendo risoluta e ferma intenzione di loro eccellenze riguardo gli ortolani di Chioggia, Pellestrina, Malamocco, S. Erasmo, Vignole, Giudecca, Treporti e di Venezia (questa città) e Murano che vengono a vendere i loro prodotti in questa città nell’isola di Rialto, soggetta al magistrato delle stesse eccellenze (= i magistrati di cui sopra), negli spazi a loro assegnati e nell’erbaria chiamata pescheria vecchia; che gli stessi ortolani possano smaltire (vendere) la merce, che portano a beneficio e a favore universale della città, in tutta sicurezza e che non siano molestati e che non si arrechi loro alcun danno da chicchessia fruttivendolo, verduraio o altra persona. Si ammonisce pubblicamente che chiunque e in qualunque momento dell’anno ardisca arrecare danno ai suddetti ortolani, sia salendo a bordo delle barche ormeggiate alle rive di questo mercato contro la loro volontà, sia di prendere o mangiare la loro merce in maniera impropria, sia di prelevarla dalle loro barche senza averla prima pagata; sarà severamente punito con la pena irrevocabile di tre tiri di corda oppure, se non possibile, con la messa alla berlina per un’ora oppure con altre pene ad arbitrio dei magistrati stessi. Ciò perché risulta conveniente che le persone che portano in questa città beni alimentari (= vituaria) siano trattate bene. A tal fine gli ortolani sono obbligati ed è a loro carico (= incarbicati), in caso di molestia subita, recarsi dal magistrato a darne notizia spiegando l’accaduto (= e contenuto) perché lo stesso possa provvedere alle sue decisioni, pena di essere anche loro sottoposti a provvedimenti a giudizio di loro eccellenze. La presente ordinanza sia scolpita su pietra di marmo perché chiunque possa leggerla.",
     "image": "tmp.png",
     "link": "https://www.instagram.com/p/Cflzx1cqxyh/?img_index=1"
   },
@@ -198,7 +205,7 @@
   {
     "id": "ferali",
     "name": "Ferali",
-    "description": "Luogo di produzione di fanali in ferro o in legno, sia per privati che per l'illuminazione pubblica. Il 23 maggio 1732 fu decretata dal Senato l'illuminazione pubblica dell'intera città. Nel 1795 i fanali erano 1952 (457 San Marco, 359 Castello, 240 San Polo, 430 Cannareggio, 193 Santa Croce, 273 Dorsoduro).",
+    "description": "Luogo di produzione di fanali in ferro o in legno, sia per privati che per l'illuminazione pubblica. Il 23 maggio 1732 fu decretata dal Senato l'illuminazione pubblica dell'intera città.",
     "image": "tmp.png",
     "link": "https://www.instagram.com/p/CgJ5Uq0KKpO/?img_index=1"
   },

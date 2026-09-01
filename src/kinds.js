@@ -33,8 +33,17 @@ function escapeRegExp(str) {
  */
 export function matchKindsInName(name, kinds) {
   const normalizedName = normalize(name || '');
-  return kinds.filter((kind) => {
+  const matches = kinds.filter((kind) => {
     const pattern = new RegExp(`\\b${escapeRegExp(normalize(kind.name))}\\b`);
     return pattern.test(normalizedName);
+  });
+
+  return matches.filter((kind, index, all) => {
+    const normalizedKind = normalize(kind.name);
+    return !all.some((other, otherIndex) => {
+      if (index === otherIndex) return false;
+      const normalizedOther = normalize(other.name);
+      return normalizedOther.includes(normalizedKind) && normalizedOther.length > normalizedKind.length;
+    });
   });
 }
